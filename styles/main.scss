@@ -38,6 +38,6 @@ a {
 }
 
 .container {
-  max-width: 1440px;
-  background-color: aqua;
+  min-width: calc(1440px - 5rem - 92px);
+  margin-left: 81px;
 }

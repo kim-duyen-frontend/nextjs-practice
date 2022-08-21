@@ -4,7 +4,9 @@
   background-color: #061b28;
   height: 100vh;
   color: #fff;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   transition: 0.4s;
 
   .container {
@@ -21,6 +23,7 @@
         height: 3rem;
         margin: auto -1.5rem;
         cursor: pointer;
+
         .icon {
           font-size: 1rem;
           color: #fff;
@@ -54,7 +57,11 @@
     }
   }
 }
-
+@media (max-width: 640px) {
+  .scalesNav {
+    height: 1000vh;
+  }
+}
 // sidebar thu nhỏ
 .navbar {
   background-color: #061b28;
@@ -62,7 +69,9 @@
   height: 100vh;
   color: #fff;
   transition: 0.4s;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   .container {
     display: grid;
@@ -73,6 +82,7 @@
       grid-template-rows: 1fr;
       height: 5rem;
       align-items: center;
+
       .brand {
         display: flex;
         justify-content: space-around;
@@ -92,6 +102,7 @@
         height: 4rem;
         margin: auto -2rem;
         cursor: pointer;
+
         .icon {
           font-size: 1.25rem;
           color: #fff;
@@ -102,12 +113,14 @@
 
     .menu {
       margin-top: 0.625rem;
+
       .subItem {
         height: 3.5rem;
         display: flex;
         align-items: center;
         color: #fff;
         margin: auto 1.25rem;
+
         .title {
           padding: 0 1.25rem;
         }
@@ -121,6 +134,7 @@
     display: grid;
     grid-template-columns: 7fr 1fr;
     margin: auto 1.25rem;
+
     .wrap {
       display: flex;
       align-items: center;
@@ -130,9 +144,11 @@
         color: #fff;
         padding-left: 0.25rem;
         width: 100%;
+
         >p {
           font-size: 0.875rem;
         }
+
         .name {
           font-weight: 600;
         }
@@ -146,5 +162,11 @@
       justify-content: center;
       cursor: pointer;
     }
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    height: 1000vh;
   }
 }
