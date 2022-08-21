@@ -1,0 +1,150 @@
+//sidebar giãn ra
+.scalesNav {
+  width: 5rem;
+  background-color: #061b28;
+  height: 100vh;
+  color: #fff;
+  position: relative;
+  transition: 0.4s;
+
+  .container {
+    .heading {
+      .hamburger {
+        position: absolute;
+        right: 0;
+        background: none;
+        border: 2px solid #fff;
+        padding: 0.5rem;
+        border-radius: 50%;
+        background-color: #55717e;
+        width: 3rem;
+        height: 3rem;
+        margin: auto -1.5rem;
+        cursor: pointer;
+        .icon {
+          font-size: 1rem;
+          color: #fff;
+
+        }
+      }
+    }
+  }
+
+  .activeMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6rem;
+  }
+
+  .scales {
+    width: 4.5rem;
+    height: 3rem;
+    text-align: center;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    margin: auto 1.25rem;
+
+    .logout {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// sidebar thu nhỏ
+.navbar {
+  background-color: #061b28;
+  width: 20rem;
+  height: 100vh;
+  color: #fff;
+  transition: 0.4s;
+  position: relative;
+
+  .container {
+    display: grid;
+
+    .heading {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr;
+      height: 5rem;
+      align-items: center;
+      .brand {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+      }
+
+      .hamburger {
+        position: absolute;
+        right: 0;
+        background: none;
+        border: 2px solid #fff;
+        padding: 1.25rem;
+        border-radius: 50%;
+        background-color: #55717e;
+        width: 4rem;
+        height: 4rem;
+        margin: auto -2rem;
+        cursor: pointer;
+        .icon {
+          font-size: 1.25rem;
+          color: #fff;
+
+        }
+      }
+    }
+
+    .menu {
+      margin-top: 0.625rem;
+      .subItem {
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        margin: auto 1.25rem;
+        .title {
+          padding: 0 1.25rem;
+        }
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+    margin: auto 1.25rem;
+    .wrap {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+
+      .info {
+        color: #fff;
+        padding-left: 0.25rem;
+        width: 100%;
+        >p {
+          font-size: 0.875rem;
+        }
+        .name {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .logout {
+      font-size: 1.875rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}
