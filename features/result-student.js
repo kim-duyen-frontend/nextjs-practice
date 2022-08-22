@@ -93,6 +93,7 @@ const ResultStudent = () => {
     ];
     const [selectSemester, setSelectSemester] = useState(0);
     const [selectCourse, setSelectCourse] = useState("");
+    const [textSearch, setTextSearch] = useState("");
 
     const handleSelectSemester = (event) => {
         event.preventDefault();
@@ -101,6 +102,10 @@ const ResultStudent = () => {
     const handleSelectCourse = (event) => {
         event.preventDefault();
         setSelectCourse(event.target.value);
+    }
+    const handleSearch = (event) => {
+        event.preventDefault();
+        setTextSearch(event.target.value);
     }
     const filterOrSearchData = useMemo(() => {
         let temp = dataStudents;
@@ -126,8 +131,22 @@ const ResultStudent = () => {
                 }
             })
         }
+        if (textSearch) {
+            temp = temp.filter((data) => {
+                if (textSearch === " ") {
+                    return data;
+                } else {
+                    if (data.id.includes(textSearch)) {
+                        return data;
+                    }
+                    if (data.name.toLowerCase().includes(textSearch.toLowerCase())) {
+                        return data;
+                    }
+                }
+            })
+        }
         return temp;
-    }, [selectSemester, selectCourse])
+    }, [selectSemester, selectCourse, textSearch])
     return (
         <div className={styles.resultstudent}>
             <div className="container">
@@ -136,7 +155,7 @@ const ResultStudent = () => {
                         <h3 className={styles.title}>Sheet Student</h3>
                     </div>
                     <div className={styles.column}>
-                        <SearchStudent />
+                        <SearchStudent textSearch={textSearch} handleSearch={handleSearch} />
                         <div className={styles.wrap}>
                             <ComboboxSemester selectSemester={selectSemester} handleSelectSemester={handleSelectSemester} />
                             <ComboboxCourses selectCourse={selectCourse} handleSelectCourse={handleSelectCourse} />
@@ -160,7 +179,6 @@ const ResultStudent = () => {
                                                         width={12}
                                                         height={12}
                                                         alt="sort"
-                                                    // onClick={() => setTypeSort(!typeSort)}
                                                     />
                                                 </a>
                                             </Link>
