@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import ComboboxSemester from '../components/combobox-semester';
 import ComboboxCourses from "../components/combobox-courses";
 import ItemTable from '../components/item-table';
@@ -91,6 +91,26 @@ const ResultStudent = () => {
             rank: "A",
         },
     ];
+    const [selectSemester, setSelectSemester] = useState(0);
+    const handleSelectSemester = (event) => {
+        event.preventDefault();
+        setSelectSemester(event.target.value);
+    } 
+    const filterOrSearchData = useMemo(() =>{
+        let temp = dataStudents;
+        if (selectSemester) {
+            temp = temp.filter((data) => {
+                if (selectSemester === "Semester") {
+                    return data;
+                }else{
+                    if (data.semester === selectSemester) {
+                        return data;
+                    }
+                }
+            })
+        }
+        return temp;
+    },[selectSemester])
     return (
         <div className={styles.resultstudent}>
             <div className="container">
@@ -101,7 +121,7 @@ const ResultStudent = () => {
                     <div className={styles.column}>
                         <SearchStudent />
                         <div className={styles.wrap}>
-                            <ComboboxSemester />
+                            <ComboboxSemester selectSemester={selectSemester} handleSelectSemester={handleSelectSemester} />
                             <ComboboxCourses />
                         </div>
                     </div>
@@ -123,17 +143,17 @@ const ResultStudent = () => {
                                                         width={12}
                                                         height={12}
                                                         alt="sort"
-                                                        // onClick={() => setTypeSort(!typeSort)}
+                                                    // onClick={() => setTypeSort(!typeSort)}
                                                     />
                                                 </a>
                                             </Link>
-                                            
+
                                         </div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {dataStudents.map((student) => (
+                                {filterOrSearchData.map((student) => (
                                     <ItemTable key={student.id} student={student} />
                                 ))}
                             </tbody>
