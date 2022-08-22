@@ -92,25 +92,42 @@ const ResultStudent = () => {
         },
     ];
     const [selectSemester, setSelectSemester] = useState(0);
+    const [selectCourse, setSelectCourse] = useState("");
+
     const handleSelectSemester = (event) => {
         event.preventDefault();
         setSelectSemester(event.target.value);
-    } 
-    const filterOrSearchData = useMemo(() =>{
+    }
+    const handleSelectCourse = (event) => {
+        event.preventDefault();
+        setSelectCourse(event.target.value);
+    }
+    const filterOrSearchData = useMemo(() => {
         let temp = dataStudents;
         if (selectSemester) {
             temp = temp.filter((data) => {
                 if (selectSemester === "Semester") {
                     return data;
-                }else{
+                } else {
                     if (data.semester === selectSemester) {
                         return data;
                     }
                 }
             })
         }
+        if (selectCourse) {
+            temp = temp.filter((data) => {
+                if (selectCourse === "All courses") {
+                    return data;
+                } else {
+                    if (data.department === selectCourse) {
+                        return data;
+                    }
+                }
+            })
+        }
         return temp;
-    },[selectSemester])
+    }, [selectSemester, selectCourse])
     return (
         <div className={styles.resultstudent}>
             <div className="container">
@@ -122,7 +139,7 @@ const ResultStudent = () => {
                         <SearchStudent />
                         <div className={styles.wrap}>
                             <ComboboxSemester selectSemester={selectSemester} handleSelectSemester={handleSelectSemester} />
-                            <ComboboxCourses />
+                            <ComboboxCourses selectCourse={selectCourse} handleSelectCourse={handleSelectCourse} />
                         </div>
                     </div>
                     <div className={styles.column}>

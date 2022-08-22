@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from "../styles/comboboxcourses.module.scss";
 
-const ComboboxCourses = () => {
+const ComboboxCourses = ({ selectCourse, handleSelectCourse }) => {
     return (
         <div className={styles.comboboxCourses}>
-            <select className={styles.combobox}>
+            <select className={styles.combobox} value={selectCourse} onChange={(event) => handleSelectCourse(event)}>
                 <option value="All courses">All courses</option>
                 <option value="Graphic Design">Graphic Design</option>
                 <option value="Python Programming">Python Programming</option>
