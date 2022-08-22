@@ -94,6 +94,7 @@ const ResultStudent = () => {
     const [selectSemester, setSelectSemester] = useState(0);
     const [selectCourse, setSelectCourse] = useState("");
     const [textSearch, setTextSearch] = useState("");
+    const [typeSort, setTypeSort] = useState(false);
 
     const handleSelectSemester = (event) => {
         event.preventDefault();
@@ -106,6 +107,9 @@ const ResultStudent = () => {
     const handleSearch = (event) => {
         event.preventDefault();
         setTextSearch(event.target.value);
+    }
+    const handleSort = () => {
+
     }
     const filterOrSearchData = useMemo(() => {
         let temp = dataStudents;
@@ -145,8 +149,13 @@ const ResultStudent = () => {
                 }
             })
         }
+        if (typeSort) {
+            temp = temp.sort((a, b) => a.scores - b.scores)
+        } else {
+            temp = temp.sort((a, b) => b.scores - a.scores)
+        }
         return temp;
-    }, [selectSemester, selectCourse, textSearch])
+    }, [selectSemester, selectCourse, textSearch, typeSort])
     return (
         <div className={styles.resultstudent}>
             <div className="container">
@@ -173,7 +182,7 @@ const ResultStudent = () => {
                                         <div className={styles.sortResult}>
                                             RESULT{" "}
                                             <Link href="#!">
-                                                <a>
+                                                <a onClick={() => setTypeSort(!typeSort)}>
                                                     <Image
                                                         src="/images/sort.png"
                                                         width={12}
