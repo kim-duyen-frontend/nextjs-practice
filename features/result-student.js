@@ -3,6 +3,8 @@ import ComboboxSemester from '../components/combobox-semester';
 import ComboboxCourses from "../components/combobox-courses";
 import ItemTable from '../components/item-table';
 import SearchStudent from '../components/search-student';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from "../styles/resultstudent.module.scss";
 
 
@@ -111,7 +113,23 @@ const ResultStudent = () => {
                                     <th>ID NUMBER</th>
                                     <th>DEPARTMENT</th>
                                     <th>SEMESTER</th>
-                                    <th>RESULT</th>
+                                    <th>
+                                        <div className={styles.sortResult}>
+                                            RESULT{" "}
+                                            <Link href="#!">
+                                                <a>
+                                                    <Image
+                                                        src="/images/sort.png"
+                                                        width={12}
+                                                        height={12}
+                                                        alt="sort"
+                                                        // onClick={() => setTypeSort(!typeSort)}
+                                                    />
+                                                </a>
+                                            </Link>
+                                            
+                                        </div>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>

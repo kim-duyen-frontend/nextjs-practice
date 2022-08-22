@@ -11,6 +11,8 @@ const ComboboxCourses = () => {
                 <option value="Machine Learning">Machine Learning</option>
                 <option value="C++ Programming">C++ Programming</option>
                 <option value="C Programming">C Programming</option>
+                <option value="JavaScript Programming">JavaScript Programming</option>
+
             </select>
         </div>
     );

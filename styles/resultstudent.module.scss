@@ -28,6 +28,14 @@
                         th {
                             border: 1px solid #cacaca;
                             padding: 0.25rem;
+                            .sortResult{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                > a{
+                                    margin-left: 0.5rem;
+                                }
+                            }
                         }
                     }
                 }
