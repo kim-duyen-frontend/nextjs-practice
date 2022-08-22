@@ -3,10 +3,10 @@ import ComboboxSemester from '../components/combobox-semester';
 import ComboboxCourses from "../components/combobox-courses";
 import ItemTable from '../components/item-table';
 import SearchStudent from '../components/search-student';
-import styles from "../styles/content.module.scss";
+import styles from "../styles/resultstudent.module.scss";
 
 
-const Content = () => {
+const ResultStudent = () => {
     const dataStudents = [
         {
             id: "2021134071",
@@ -90,11 +90,11 @@ const Content = () => {
         },
     ];
     return (
-        <div className={styles.content}>
+        <div className={styles.resultstudent}>
             <div className="container">
                 <div className={styles.container}>
                     <div className={styles.column}>
-                        <h3>Sheet Student</h3>
+                        <h3 className={styles.title}>Sheet Student</h3>
                     </div>
                     <div className={styles.column}>
                         <SearchStudent />
@@ -127,4 +127,4 @@ const Content = () => {
     );
 };
 
-export default Content;
+export default ResultStudent;

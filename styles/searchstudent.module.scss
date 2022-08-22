@@ -10,10 +10,16 @@
         border-radius: 0.375rem;
         font-size: 0.875rem;
         display: block;
-        padding-left: 1.75rem;
 
         &:focus {
             outline: none;
+        }
+    }
+}
+@media(max-width:640px){
+    .searchStudent{
+        .inputSearch{
+            width: 100%;
         }
     }
 }

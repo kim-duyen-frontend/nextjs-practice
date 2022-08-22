@@ -17,9 +17,6 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -28,16 +25,6 @@ a {
 
   body {
     color: white;
-    background: black;
+    background: #fff;
   }
-}
-
-.wrap {
-  display: flex;
-
-}
-
-.container {
-  min-width: calc(1440px - 5rem - 92px);
-  margin-left: 81px;
 }

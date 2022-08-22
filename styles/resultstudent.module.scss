@@ -1,13 +1,15 @@
-.content {
-    .container {
-        padding: 3rem 0 0 0;
+.resultstudent {
 
+    .container {
         .column {
             display: flex;
             justify-content: space-between;
             height: 4rem;
             line-height: 4rem;
-
+            .title{
+                color:#061b28;
+                font-weight: 700;
+            }
             .wrap {
                 display: flex;
                 align-items: center;
@@ -45,10 +47,12 @@
 }
 
 @media (max-width: 640px) {
-    .content {
+    .resultstudent {
         .container {
             .column {
+                flex-direction: column;
                 table {
+                    margin: 5rem 0 0 0;
                     thead {
                         tr {
                             th {

@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import MainLayout from '../components/main-layout'
-import Navbar from '../features/navbar'
-import Content from "../features/content"
+import MainLayout from '../components/main-layout';
+import Sidebar from '../features/sidebar';
 
 export default function Home() {
   return (
@@ -12,10 +11,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="wrap">
-        <Navbar />
-        <Content />
-      </main>
+      <>
+        <Sidebar />
+      </>
     </>
   )
 }
